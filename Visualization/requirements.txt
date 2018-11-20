@@ -1,2 +1,2 @@
-thorpy
-pygame
+numpy==1.15.3
+pyserial==3.4
