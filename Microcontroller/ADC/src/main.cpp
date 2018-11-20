@@ -1,18 +1,15 @@
 #include <Arduino.h>
 
-#define ANALOGPIN   A0
+#define ANALOGPIN   A5
 
 void setup() {
     Serial.begin(9600);
+    pinMode(ANALOGPIN, INPUT);
 }
 
 
 void loop() {
     int value = analogRead(ANALOGPIN);
     Serial.println(value);
-    delay(1000);
-    Serial.println(200);
-    delay(1000);
-    Serial.println(612);
-    delay(1000);
+    //  delay(2000);
 }

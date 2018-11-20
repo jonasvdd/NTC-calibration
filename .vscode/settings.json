@@ -1,3 +1,4 @@
 {
-    "python.linting.pydocstylePath": "pydocstyle"
+    "python.linting.pydocstylePath": "pydocstyle",
+    "python.pythonPath": "/home/jonas/venv/bin/python"
 }

@@ -79,14 +79,25 @@ class SteinHart:
 
 
     def feed(self, T, R):
+        # threshold distance
         # create a new Temperature Resistance object
         new_TR = TemperatureResistance(T, R)
 
         if len(self.TR_values) < 3:
-            self.TR_values.append(new_TR)
-            self.TR_values.sort()
-            if len(self.TR_values) == 3:
-                self._calibrate()
+            threshold = 1
+            different = True
+
+            for tr in self.TR_values:
+                if (abs(tr.T - T) < threshold or abs(tr.R -R ) < threshold):
+                    different = False
+            
+            if different:
+                self.TR_values.append(new_TR)
+                self.TR_values.sort()
+                if len(self.TR_values) == 3:
+                    self._calibrate()
+            else:
+                print("Data is not different enough!")
         else:   # more than 3 values
             # new minimum
             if new_TR.T < self.TR_values[MIN_POS].T:

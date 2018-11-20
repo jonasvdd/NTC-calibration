@@ -58,7 +58,7 @@ class TSP01:
         :return: the temperature °C
         :rtype: float
         """
-        return self.sensor.query_ascii_values(':SENSe3:TEMPerature:DATA?')
+        return self.sensor.query_ascii_values(':SENSe3:TEMPerature:DATA?')[0]
 
     def probe_2_temperature(self):
         """
@@ -75,7 +75,7 @@ class TSP01:
 ##############################
 if __name__ == "__main__":
     text = "testing functionality"
-    print('-'*(8 + len(text)) + '\n    ' + text + '-'*(8 + len(text) ))
+    print('-'*(8 + len(text)) + '\n    ' + text + '\n' + '-'*(8 + len(text) ))
     
     tsp01 = TSP01()
     print("internal temperature:         {} °C".format(tsp01.USB_temperature()))
