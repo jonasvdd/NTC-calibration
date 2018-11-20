@@ -123,7 +123,7 @@ class SteinHart:
 
     
     def __str__(self):
-        return str(sth.TR_values) + "\nA: %s\tB: %s\tC: %s" % (self.A, self.B, self.C)
+        return str(self.TR_values) + "\nA: %s\tB: %s\tC: %s" % (self.A, self.B, self.C)
 
 
 if __name__ == '__main__':

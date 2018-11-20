@@ -15,8 +15,6 @@ If your circuit doesn't make use of a (simple) voltage devider, you will need an
 
 * Creating a new method in the conversion class
 
-
-
 ## Visualization
 
 
