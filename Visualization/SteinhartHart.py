@@ -8,7 +8,6 @@
 """
 __author__ = 'Jonas Van Der Donckt'
 
-
 import numpy as np
 
 
@@ -114,8 +113,7 @@ class SteinHart:
     
     def __str__(self):
         return str(sth.TR_values) + "\nA: %s\tB: %s\tC: %s" % (self.A, self.B, self.C)
-            
-    
+
 
 if __name__ == '__main__':
     sth = SteinHart()

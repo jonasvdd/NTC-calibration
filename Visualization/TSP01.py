@@ -14,7 +14,7 @@ import visa
 class TSP01:
     """
     Is a wrapper for the THORLABS TSP01. 
-    Makes use of SCPI (standard commands for programmable intstruments) 
+    Makes use of SCPI (Standard Commands for Programmable Intstruments) 
     to retrieve the temperature/humidity. 
     """
 
