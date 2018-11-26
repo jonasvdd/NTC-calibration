@@ -6,9 +6,17 @@
     
     This script starts the application.
     It must be ran as root! 
+    
     It will:
-    * Request the user to choose the serial connection of the TSP01
-    * 
+        1. Request the user to choose the serial connection of the TSP01
+        2. Try to establish a connection with the microcontroller via the serial port
+
+    Afterwards, The module wil wait until the microcontroller writes an ADC value on 
+    the serial port. When this happens. The code will:
+        * Request the temperature of the TSP01 temperature logger probe (1)
+        * Convert that ADC value to the respective Resistance of the NTC
+        * Feed that data to the SteinhartHart class to (re)calibrate the module
+        * Save those values in a CSV
     
 """
 __author__ = 'Jonas Van Der Donckt'
@@ -21,11 +29,10 @@ from config import *
 import time
 
 
-
-
-CSV_FILE = 'data/csv_' + time.strftime("%Y-%m-%d_%H-%M") + '.csv'
-
 if __name__ == '__main__':
+    # file to write CSV data
+    CSV_FILE = 'data/csv_' + time.strftime("%Y-%m-%d_%H-%M") + '.csv'
+
     # Initialize the key objects
     tsp01 = TSP01()                             # accurate Temperature logger
     serial = ArduinoSerial(PORT, BAUDRATE)      # serial monitor to retrieve ADC value

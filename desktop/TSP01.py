@@ -43,13 +43,13 @@ class TSP01:
         :return: the temperature in °C
         :rtype: float
         """
-        return self.sensor.query_ascii_values(':READ?')
+        return self.sensor.query_ascii_values(':READ?')[0]
 
     def USB_humidity(self):
         """
         Retrieves the built-in relative humidity
         """
-        return self.sensor.query_ascii_values(":SENSe2:HUMidity:DATA?")
+        return self.sensor.query_ascii_values(":SENSe2:HUMidity:DATA?")[0]
 
     def probe_1_temperature(self):
         """
@@ -67,7 +67,7 @@ class TSP01:
         :return: the temperature °C
         :rtype: float
         """
-        return self.sensor.query_ascii_values(':SENSe4:TEMPerature:DATA?')
+        return self.sensor.query_ascii_values(':SENSe4:TEMPerature:DATA?')[0]
 
 
 ##############################

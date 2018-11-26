@@ -22,33 +22,62 @@ K_OFFSET = 273.15
 COEFF_FILE_TSV = 'coefficients.tsv'
 COEFF_FILE_CSV = 'coefficients.tsv'
 
+
 class TemperatureResistance:
-        def __init__(self, T, R):
-            self.T = T
-            self.R = R
-            self._dist = -1
+    """
+    Helper class to ease some calculations/readability
+    """
+    def __init__(self, T, R):
+        self.T = T
+        self.R = R
+        self._dist = -1
 
-        def __lt__(self, other):
-            return self.T < other.T
+    def calc_dist(self, minTR, maxTR):
+        """
+        Calculates the distance between The current TemperatureResistance
+        and 2 other TemperatureResistances objects. 
+                
+        :return: The calculated distance
+        :rtype: float
+        """
+        self._dist = np.sqrt(self.T - minTR.T) + np.sqrt(maxTR.T - self.T)
+        return self._dist
 
-        def __str__(self):
-            return "{ T: %s, R: %s }" % (self.T, self.R)
+    def __lt__(self, other):
+        """
+        Implement the **lesser than** operation to be able to sort instances
+        """
+        return self.T < other.T
 
-        def __repr__(self):
-            return self.__str__()
+    def __str__(self):
+        return "{ T: %s, R: %s }" % (self.T, self.R)
 
-        def calc_dist(self, minRT, maxRT):
-            self._dist = np.sqrt(self.T - minRT.T) + np.sqrt(maxRT.T - self.T)
-            return self._dist
+    def __repr__(self):
+        return self.__str__()
+
 
 class SteinHart:
+    """
+    Object Oriented representation of the steinhart equation
+    
+    Has the nifty feature that it will use the **3 most distant**
+    points to calculate the steinhart hart coefficients. 
+    """
+
     def __init__(self, A=None, B=None, C=None):
         self.A, self.B, self.C = A, B, C
-        # TODO CHECK WETHER THE VALUES ARE CORRECTLY CALIBRATED.
-        self.calibrated = False
+        self.calibrated = self.A is not None and self.B is not None and self.C is not None
         self.TR_values = []
 
     def calculateT(self, R):
+        """
+        Calculates the temperature in °C, based on the resistance of the NTC
+        
+        :param float R: The resistance of the NTC
+        :return: The predicted temperature in °C if the system is calibrated, 
+            otherwise None
+        :rtype: float
+        """
         if self.calibrated:
             return 1 / (self.A + self.B * np.log(R) + self.C * np.log(R)**3) - K_OFFSET
         else:
@@ -83,12 +112,20 @@ class SteinHart:
 
 
     def feed(self, T, R):
-        # threshold distance
+        """
+        Feeds new temperature values to the Steinhart Hart Equation.
+
+        This function will only use the values to calibrate the values
+        if they are "more distant" than the current values. 
+                
+        :param float T: The reference temperature in °C
+        :param float R: The measured/calculated resistance of the thermistor
+        """
         # create a new Temperature Resistance object
         new_TR = TemperatureResistance(T, R)
 
         if len(self.TR_values) < 3:
-            threshold = 1
+            threshold = 1       #         # threshold distance
             different = True
 
             for tr in self.TR_values:
@@ -125,13 +162,15 @@ class SteinHart:
             # recalibrate
             self._calibrate()
 
-    def save(self):
+    def save(self, filename=None):
+        """
+        Saves the current Steinhart Hart coefficients in .csv file.
+        """
         if self.calibrated:
             with open(COEFF_FILE_CSV) as f:
                 f.write("%s,%s,%s", self.A, self.B, self.C)
-    
-    def __str__(self):
-        return str(self.TR_values) + "\nA: %s\tB: %s\tC: %s" % (self.A, self.B, self.C)
+        else:
+            print("Can't save the coefficients if they aren't calculated (╯°□°）╯︵ ┻━┻")
 
     @classmethod
     def from_csv(cls, file=COEFF_FILE_CSV):
@@ -146,7 +185,13 @@ class SteinHart:
             coeff = f.readline().split('/t')
             return cls(A=coeff[0], B=coeff[1], C=coeff[2])
 
+    def __str__(self):
+        return str(self.TR_values) + "\nA: %s\tB: %s\tC: %s" % (self.A, self.B, self.C)
 
+
+##############################
+# for testing purposes:
+##############################
 if __name__ == '__main__':
     sth = SteinHart()
     # testing whether it sorts correctly
