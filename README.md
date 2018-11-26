@@ -13,9 +13,13 @@ These values are feeded into the [Steinhart-Hart class](Visualization/SteinhartH
 
 If your circuit doesn't make use of a (simple) voltage devider, you will need another conversion method. This can be achieved by:
 
-* Creating a new method in the conversion class
+* Creating a method in [config.py](visualization/config.py)
 
-## Visualization
+## Calibration results
 
+Al the values (reference temperature, ntc_resistor value, predicted temperature, the coefficients, ...) will be stored in a .csv file.
+This can be used in e.g. jupyter notebook to analyze the quality of the calibration. 
 
 ## Contributing
+
+If you have some amazing ideas, just create a pull request :D. 

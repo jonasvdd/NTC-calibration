@@ -19,6 +19,9 @@ MID_POS = 1
 MAX_POS = 2
 K_OFFSET = 273.15
 
+COEFF_FILE_TSV = 'coefficients.tsv'
+COEFF_FILE_CSV = 'coefficients.tsv'
+
 class TemperatureResistance:
         def __init__(self, T, R):
             self.T = T
@@ -39,8 +42,9 @@ class TemperatureResistance:
             return self._dist
 
 class SteinHart:
-    def __init__(self):
-        self.A, self.B, self.C = None, None, None
+    def __init__(self, A=None, B=None, C=None):
+        self.A, self.B, self.C = A, B, C
+        # TODO CHECK WETHER THE VALUES ARE CORRECTLY CALIBRATED.
         self.calibrated = False
         self.TR_values = []
 
@@ -121,9 +125,26 @@ class SteinHart:
             # recalibrate
             self._calibrate()
 
+    def save(self):
+        if self.calibrated:
+            with open(COEFF_FILE_CSV) as f:
+                f.write("%s,%s,%s", self.A, self.B, self.C)
     
     def __str__(self):
         return str(self.TR_values) + "\nA: %s\tB: %s\tC: %s" % (self.A, self.B, self.C)
+
+    @classmethod
+    def from_csv(cls, file=COEFF_FILE_CSV):
+        with open(file) as f:
+            # todo check for whitespaces and stuff
+            coeff = f.readline().split(',')
+            return cls(A=coeff[0], B=coeff[1], C=coeff[2])
+
+    @classmethod
+    def from_tsv(cls, file=COEFF_FILE_TSV):
+        with open(file) as f:
+            coeff = f.readline().split('/t')
+            return cls(A=coeff[0], B=coeff[1], C=coeff[2])
 
 
 if __name__ == '__main__':
