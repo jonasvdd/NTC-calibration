@@ -1,6 +1,0 @@
-{
-    "terminal.integrated.env.linux": {
-        "PATH": "/home/jonas/.platformio/penv/bin:/home/jonas/.platformio/penv:/home/jonas/.zplug/repos/zplug/zplug/bin:/home/jonas/.zplug/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/cuda/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl",
-        "PLATFORMIO_CALLER": "vscode"
-    }
-}

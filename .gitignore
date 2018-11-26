@@ -2,7 +2,7 @@
 .piolibdeps
 .clang_complete
 .gcc-flags.json
-
+.vscode/
 pictures/
 _bank/
 **/__pycache__/
