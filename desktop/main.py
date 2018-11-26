@@ -9,7 +9,7 @@
     
     It will:
         1. Request the user to choose the serial connection of the TSP01
-        2. Try to establish a connection with the microcontroller via the serial port
+        2. Try to establish a connection with the microcontroller via the serial port  
 
     Afterwards, The module wil wait until the microcontroller writes an ADC value on 
     the serial port. When this happens. The code will:
