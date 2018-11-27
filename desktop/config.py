@@ -6,7 +6,7 @@ BAUDRATE =        9600
 PORT =            '/dev/ttyUSB0'
 
 # Measurement board dependent variables
-SERIAL_RESISTOR = 47400
+SERIAL_RESISTOR = 47550 # fluke 45
 ACCURACY_ADC =    1023
 
 #######################
