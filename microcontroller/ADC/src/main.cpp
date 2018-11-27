@@ -4,14 +4,16 @@
 #define BUTTONPIN 2
 
 unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
-unsigned long debounceDelay = 50;    // the debounce time; increase if the output flickers
+unsigned long debounceDelay = 200;    // the debounce time; increase if the output flickers
 
+// method definitions
+void button();
 
 void setup() {
     Serial.begin(9600);
     pinMode(ANALOGPIN, INPUT);
     pinMode (BUTTONPIN,INPUT);
-    attachInterrupt(digitalPinToInterrupt(button), button, RISING);
+    attachInterrupt(digitalPinToInterrupt(BUTTONPIN), button, RISING);
 }
 
 
