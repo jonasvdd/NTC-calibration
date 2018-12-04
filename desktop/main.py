@@ -58,7 +58,7 @@ if __name__ == '__main__':
         # Save the data in the csv
         with open(CSV_FILE, mode='a+') as csvfile:
             if not sth.calibrated:
-                csvfile.writelines("%s, %s \n" % (ntcResistance, probe_temp))
+                csvfile.writelines("%s, %s ,,,,,,,,,,\n" % (ntcResistance, probe_temp))
             else:
                 csvfile.writelines("%s, %s, %s, %s, %s, %s, %s \n" % 
                 (ntcResistance, probe_temp, calc_temp, sth.A, sth.B, sth.C, sth.TR_values))
