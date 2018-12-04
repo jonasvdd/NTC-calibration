@@ -30,7 +30,7 @@ Just run with your python3 interpreter:
 python main.py
 ```
 
->**NOTE**: Some users will not be able to detect, this can be caused by:
+>**NOTE**: Some users will not be able to detect the torlabs TSP01 sensor, this can be caused by:
 > * Not having the [pyusb](https://pypi.org/project/pyusb/) library installed (see link for install instructions)
 > * The current user on you desktop is not able to see the devices
 >   * Try adding your current user to the dialout group
