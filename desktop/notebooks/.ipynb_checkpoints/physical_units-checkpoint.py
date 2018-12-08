@@ -1,0 +1,12 @@
+
+MASS = 'MASS'
+KILOGRAM = 'kg'
+
+
+RESISTANCE = 'RESISTANCE'
+OHM = 'Ω'
+KILO_OHM = 'kΩ'
+
+LENGTH = 'LENGTH'
+CENTIMETER = 'cm'
+METER = 'm'

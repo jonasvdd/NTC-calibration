@@ -69,3 +69,5 @@ def calc_Rntc(adc):
     :return: The Resistance of the NTC resistor (ohm)
      """
     return v_devider_rntc_adc_r(adc)
+
+    
