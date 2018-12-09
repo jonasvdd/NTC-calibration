@@ -17,8 +17,8 @@ class Physical_Unit:
         else:
             raise NotImplementedError
 
-        self.ae = ae
-        self.re = re
+        self.ae = abs(ae)
+        self.re = abs(re)
 
     def __neg__(self):
         return Physical_Unit(self.un, self.sym, -self.val, self.ae)
@@ -36,7 +36,7 @@ class Physical_Unit:
         return self.__add__(other)
 
     def __sub__(self, other):
-        return other + self.__neg__();
+        return self + (-other);
 
     def __mul__(self, other):
         if type(other) is int or type(other) is float:
@@ -80,12 +80,27 @@ class Physical_Unit:
     def __rfloordiv__(self, other):
         return self.__rtruediv__(other)
 
+    def __lt__(self, other):
+        """
+        Implement the **lesser than** operation to be able to sort instances
+        """
+        if type(other) is int or type(other) is float:
+            return self.val < other
+        elif type(other) is Physical_Unit:
+            return self.val < other.val
+        else:
+            raise NotImplementedError
+
+    def __abs__(self):
+        return Physical_Unit(self.un, self.sym, abs(self.val), re=self.re)
+
     def __pow__(self, power, modulo=None):
         str_pow = '^(' + str(power) + ')'
         return Physical_Unit(self.un + str_pow, self.sym + str_pow, self.val**power, re=self.re * abs(power))
     
     def log(self):
-        return Physical_Unit("ln(" + self.un + ")", "ln(" + self.sym + ")" , np.log(self.val), ae=self.re)
+        logval =  np.log(self.val)
+        return Physical_Unit("ln(" + self.un + ")", "ln(" + self.sym + ")" , logval , ae=self.ae * logval / self.val)
 
     def exp(self):
         return Physical_Unit("e^(" + self.un + ")", "e^(" + self.sym + ")" , np.exp(self.val), ae=self.fout * self.val)
@@ -122,6 +137,7 @@ if __name__ == "__main__":
     print("x / y =", x/y)
     print("x + y =", x + y)
     print("x - y =", x - y)
+    print("y - x =", y - x)
 
 
     print('-'*40 + '\nTesting functionality 2\n' + '-'*40)

@@ -9,6 +9,7 @@
 __author__ = 'Jonas Van Der Donckt'
 
 import numpy as np
+from formulas import Physical_Unit
 
 
 ########################
@@ -105,6 +106,11 @@ class SteinHart:
             self.C = (y3_1 - y2_1) / (L3 - L2) * 1 / (L1 + L2 + L3)
             self.B = y2_1 - self.C * (L1**2 + L1 * L2 + L2**2)
             self.A = Y1 - (self.B + L1**2 * self.C) * L1
+
+            if type(self.A) is Physical_Unit:
+                self.A = self.A.val
+                self.B = self.B.val
+                self.C = self.C.val
 
             self.calibrated = True
         else:
