@@ -54,9 +54,9 @@ class Physical_Unit:
             return Physical_Unit(self.un, self.sym, self.val / other, re=self.re / other)
         elif type(other) is Physical_Unit:
             div_un, div_sim = self.un + ' / ' + other.un, self.sym + ' / ' + other.sym
-            if (self.un.lower() == other.un.lower()):
+            if (self.un == other.un):
                 div_un = ""
-                if (self.sym.lower() == other.un.lower()):
+                if (self.sym.lower() == other.sym.lower()):
                     div_sim =  ""
             return Physical_Unit(div_un, div_sim, self.val / other.val, re=self.re + other.re)
         else:

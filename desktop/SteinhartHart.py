@@ -9,6 +9,7 @@
 __author__ = 'Jonas Van Der Donckt'
 
 import numpy as np
+from formulas import Physical_Unit
 
 
 ########################
@@ -94,17 +95,36 @@ class SteinHart:
             L1 = np.log(self.TR_values[MIN_POS].R)
             L2 = np.log(self.TR_values[MID_POS].R)
             L3 = np.log(self.TR_values[MAX_POS].R)
+            # a = np.array(([1 , L1, L1**3],
+            #              [1,  L2, L2**3],
+            #              [1,  L3, L3**3]))
+
 
             Y1 = 1 / (self.TR_values[MIN_POS].T + K_OFFSET)
             Y2 = 1 / (self.TR_values[MID_POS].T + K_OFFSET)
             Y3 = 1 / (self.TR_values[MAX_POS].T + K_OFFSET)
+            # b = np.array([Y1, Y2, Y3])
+            # print("Y1: ", Y1, '\t', Y1.re)
+            # print("Y2: ", Y2, '\t', Y2.re)
+            # print("Y3: ", Y3, '\t', Y3.re)
+
+            # result = np.linalg.solve(a, b)
+            # print(result)
 
             y2_1 = (Y2 - Y1) / (L2 - L1)
             y3_1 = (Y3 - Y1) / (L3 - L1)
+            print("Y2_1: ", y2_1,  '\t', y2_1.re)
+            print("Y3_1: ", y3_1,  '\t', y3_1.re)
+
 
             self.C = (y3_1 - y2_1) / (L3 - L2) * 1 / (L1 + L2 + L3)
             self.B = y2_1 - self.C * (L1**2 + L1 * L2 + L2**2)
             self.A = Y1 - (self.B + L1**2 * self.C) * L1
+
+            if type(self.A) is Physical_Unit:
+                self.A = self.A.val
+                self.B = self.B.val
+                self.C = self.C.val
 
             self.calibrated = True
         else:
