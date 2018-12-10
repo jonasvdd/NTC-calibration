@@ -6,3 +6,6 @@
 pictures/
 _bank/
 **/__pycache__/
+
+*/.idea/
+*/.ipynb_checkpoints/
