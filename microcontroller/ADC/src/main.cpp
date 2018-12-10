@@ -3,8 +3,8 @@
 #define ANALOGPIN   A5
 #define BUTTONPIN 2
 
-unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
-unsigned long debounceDelay = 200;    // the debounce time; increase if the output flickers
+unsigned long lastDebounceTime = 0;     // the last time the output pin was toggled
+unsigned long debounceDelay = 200;      // the debounce time; increase if the output flickers
 
 // method definitions
 void button();

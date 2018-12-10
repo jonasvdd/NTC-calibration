@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>calibration package &mdash; NTC-calibration 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Control Panel" href="modules.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NTC-calibration
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Control Panel</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">calibration package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-calibration.Arduino">calibration.Arduino module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#arduino-py">Arduino.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-calibration.config">calibration.config module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#config-py">config.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-calibration.formulas">calibration.formulas module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#formulas-py">formulas.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-calibration.physical_units">calibration.physical_units module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#physical-units-py">physical_units.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-calibration.SteinhartHart">calibration.SteinhartHart module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#steinharthart-py">SteinhartHart.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-calibration">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NTC-calibration</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">Control Panel</a> &raquo;</li>
+        
+      <li>calibration package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/calibration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="calibration-package">
+<h1>calibration package<a class="headerlink" href="#calibration-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-calibration.Arduino">
+<span id="calibration-arduino-module"></span><h2>calibration.Arduino module<a class="headerlink" href="#module-calibration.Arduino" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="arduino-py">
+<h3>Arduino.py<a class="headerlink" href="#arduino-py" title="Permalink to this headline">¶</a></h3>
+<p>Withholds a class which creates a serial connection with a micro controller.</p>
+<dl class="class">
+<dt id="calibration.Arduino.ArduinoSerial">
+<em class="property">class </em><code class="descclassname">calibration.Arduino.</code><code class="descname">ArduinoSerial</code><span class="sig-paren">(</span><em>serial_port='/dev/ttyUSB0'</em>, <em>baudrate=9600</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/Arduino.html#ArduinoSerial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.Arduino.ArduinoSerial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates an instance of a serial connection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>serial_port</strong> (<em>str</em>) – The serial port on which the micro controller is
+connected to the desktop (default: {‘/dev/ttyUSB0’})</li>
+<li><strong>baudrate</strong> (<em>int</em>) – The baud rate (bps) from the micro controller its serial
+port (default: {9600})</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="calibration.Arduino.ArduinoSerial.read_serial">
+<code class="descname">read_serial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/Arduino.html#ArduinoSerial.read_serial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.Arduino.ArduinoSerial.read_serial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Waits until the micro controller writes a new line to the serial connection,
+reads it and returns that line as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The value, written by the micro controller on the serial port</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-calibration.config">
+<span id="calibration-config-module"></span><h2>calibration.config module<a class="headerlink" href="#module-calibration.config" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="config-py">
+<h3>config.py<a class="headerlink" href="#config-py" title="Permalink to this headline">¶</a></h3>
+<p>Withholds global configurations</p>
+<dl class="function">
+<dt id="calibration.config.calc_Rntc">
+<code class="descclassname">calibration.config.</code><code class="descname">calc_Rntc</code><span class="sig-paren">(</span><em>adc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/config.html#calc_Rntc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.config.calc_Rntc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the resistance of the NTC resistor, based
+on the ADC digital value of the microcontroller.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you use another circuit, just change the method to you
+correspondign calculations</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>adc</strong> (<em>int</em>) – The analog to digital converted value</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The Resistance of the NTC resistor (ohm)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="calibration.config.v_devider_rntc_adc_ntc">
+<code class="descclassname">calibration.config.</code><code class="descname">v_devider_rntc_adc_ntc</code><span class="sig-paren">(</span><em>adc_ntc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/config.html#v_devider_rntc_adc_ntc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.config.v_devider_rntc_adc_ntc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Circuit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>VCC
+ ┬
+ │
+ █ R_const
+ │
+ ├──────────── --&gt; Goes to microcontroller
+ │
+ ▒ R_NTC
+ │
+ ┴
+GND 
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>adc_const_r</strong> (<em>int</em>) – The analog to digital converted value</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Resistance of the NTC resistor (ohm)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="calibration.config.v_devider_rntc_adc_r">
+<code class="descclassname">calibration.config.</code><code class="descname">v_devider_rntc_adc_r</code><span class="sig-paren">(</span><em>adc_const_r</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/config.html#v_devider_rntc_adc_r"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.config.v_devider_rntc_adc_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Circuit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>VCC
+ ┬
+ │
+ ▒ R_NTC
+ │
+ ├──────────── --&gt; Goes to microcontroller
+ │
+ █ R_const
+ │
+ ┴
+GND
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>adc_const_r</strong> (<em>int</em>) – Analog to digital converted value</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Resistance of the NTC resistor (ohm)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-calibration.formulas">
+<span id="calibration-formulas-module"></span><h2>calibration.formulas module<a class="headerlink" href="#module-calibration.formulas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="formulas-py">
+<h3>formulas.py<a class="headerlink" href="#formulas-py" title="Permalink to this headline">¶</a></h3>
+<p>Withholds the Physical_Unit class, which is used to perform calculations 
+on physical units with errors.</p>
+<dl class="class">
+<dt id="calibration.formulas.Physical_Unit">
+<em class="property">class </em><code class="descclassname">calibration.formulas.</code><code class="descname">Physical_Unit</code><span class="sig-paren">(</span><em>unit_name</em>, <em>symbol</em>, <em>value</em>, <em>ae=None</em>, <em>re=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/formulas.html#Physical_Unit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.formulas.Physical_Unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates an instance of a serial connection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>unit_name</strong> (<em>str</em>) – The unit name (e.g. ‘Length’)</li>
+<li><strong>symbol</strong> (<em>str</em>) – The corresponding symbol of that unit (e.g. ‘cm’)</li>
+<li><strong>value</strong> (<em>float</em>) – The value of that physical unit</li>
+<li><strong>ae</strong> (<em>float</em>) – The value of the absolute error, defaults to None</li>
+<li><strong>re</strong> (<em>float</em>) – The value of the relative error</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>NotImplementedError</strong> – if neither ea nor re are given.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="calibration.formulas.Physical_Unit.exp">
+<code class="descname">exp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/formulas.html#Physical_Unit.exp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.formulas.Physical_Unit.exp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="calibration.formulas.Physical_Unit.log">
+<code class="descname">log</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/formulas.html#Physical_Unit.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.formulas.Physical_Unit.log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="calibration.formulas.Physical_Unit.to_scientific">
+<code class="descname">to_scientific</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/formulas.html#Physical_Unit.to_scientific"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.formulas.Physical_Unit.to_scientific" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the Physical unit to a scientific mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">[description]</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[type]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-calibration.physical_units">
+<span id="calibration-physical-units-module"></span><h2>calibration.physical_units module<a class="headerlink" href="#module-calibration.physical_units" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="physical-units-py">
+<h3>physical_units.py<a class="headerlink" href="#physical-units-py" title="Permalink to this headline">¶</a></h3>
+<p>Physical units and their corresponding unit symbols</p>
+</div>
+</div>
+<div class="section" id="module-calibration.SteinhartHart">
+<span id="calibration-steinharthart-module"></span><h2>calibration.SteinhartHart module<a class="headerlink" href="#module-calibration.SteinhartHart" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="steinharthart-py">
+<h3>SteinhartHart.py<a class="headerlink" href="#steinharthart-py" title="Permalink to this headline">¶</a></h3>
+<p>Representation of the Steinhart-Hart equation.
+Withholds 2 classes.</p>
+<dl class="class">
+<dt id="calibration.SteinhartHart.SteinHart">
+<em class="property">class </em><code class="descclassname">calibration.SteinhartHart.</code><code class="descname">SteinHart</code><span class="sig-paren">(</span><em>A=None</em>, <em>B=None</em>, <em>C=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/SteinhartHart.html#SteinHart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.SteinhartHart.SteinHart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Object Oriented representation of the Steinhart-Hart equation</p>
+<p>Has the nifty feature that it will use the <strong>3 most distant</strong>
+points to calculate the Steinhart-Hart coefficients.</p>
+<dl class="method">
+<dt id="calibration.SteinhartHart.SteinHart.calculate_t">
+<code class="descname">calculate_t</code><span class="sig-paren">(</span><em>R</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/SteinhartHart.html#SteinHart.calculate_t"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.SteinhartHart.SteinHart.calculate_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the temperature in °C, based on the resistance of the NTC</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>R</strong> (<em>float</em>) – The resistance of the NTC</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The predicted temperature in °C if the system is calibrated, 
+otherwise None</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="calibration.SteinhartHart.SteinHart.feed">
+<code class="descname">feed</code><span class="sig-paren">(</span><em>T</em>, <em>R</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/SteinhartHart.html#SteinHart.feed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.SteinhartHart.SteinHart.feed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Feeds new temperature values to the Steinhart Hart Equation.</p>
+<p>This function will only use the values to calibrate the values
+if they are “more distant” than the current values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>T</strong> (<em>float</em>) – The reference temperature in °C</li>
+<li><strong>R</strong> (<em>float</em>) – The measured/calculated resistance of the thermistor</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="calibration.SteinhartHart.SteinHart.from_csv">
+<em class="property">classmethod </em><code class="descname">from_csv</code><span class="sig-paren">(</span><em>file='coefficients.csv'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/SteinhartHart.html#SteinHart.from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.SteinhartHart.SteinHart.from_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="calibration.SteinhartHart.SteinHart.from_tsv">
+<em class="property">classmethod </em><code class="descname">from_tsv</code><span class="sig-paren">(</span><em>file='coefficients.tsv'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/SteinhartHart.html#SteinHart.from_tsv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.SteinhartHart.SteinHart.from_tsv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="calibration.SteinhartHart.SteinHart.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/SteinhartHart.html#SteinHart.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.SteinhartHart.SteinHart.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the current Steinhart-Hart coefficients in .csv file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="calibration.SteinhartHart.TemperatureResistance">
+<em class="property">class </em><code class="descclassname">calibration.SteinhartHart.</code><code class="descname">TemperatureResistance</code><span class="sig-paren">(</span><em>T</em>, <em>R</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/SteinhartHart.html#TemperatureResistance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.SteinhartHart.TemperatureResistance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class to ease some calculations/readability</p>
+<p>Creates an instance of the the TemperatureResistance class</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>T</strong> (<em>float</em>) – The temperature</li>
+<li><strong>R</strong> (<em>float</em>) – The resistance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="calibration.SteinhartHart.TemperatureResistance.calc_dist">
+<code class="descname">calc_dist</code><span class="sig-paren">(</span><em>minTR</em>, <em>maxTR</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/SteinhartHart.html#TemperatureResistance.calc_dist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.SteinhartHart.TemperatureResistance.calc_dist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the distance between The current TemperatureResistance
+and 2 other TemperatureResistances objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The calculated distance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-calibration">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-calibration" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="modules.html" class="btn btn-neutral" title="Control Panel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Jonas Van Der Donckt, Mattijs Lootens
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
