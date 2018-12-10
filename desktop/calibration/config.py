@@ -75,7 +75,7 @@ def calc_Rntc(adc):
     on the ADC digital value of the microcontroller.
 
     .. NOTE::
-    
+
         If you use another circuit, just change the method to you
         correspondign calculations
              
