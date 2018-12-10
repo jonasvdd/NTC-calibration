@@ -30,7 +30,7 @@ calibration.formulas module
     :undoc-members:
     :show-inheritance:
 
-    
+
 calibration.physical_units module
 ----------------------------------
 
@@ -49,10 +49,11 @@ calibration.SteinhartHart module
     :show-inheritance:
 
 
-Module contents
----------------
+calibration.TSP01 module
+-------------------------
 
-.. automodule:: calibration
+.. automodule:: calibration.TSP01
     :members:
     :undoc-members:
     :show-inheritance:
+

@@ -12,6 +12,11 @@ Welcome to NTC-calibration's documentation!
    :caption: Contents:
 
    modules
+   
+.. automodule:: main
+    :members:
+    :undoc-members:
+    :show-inheritance:
 
 Indices and tables
 ==================
