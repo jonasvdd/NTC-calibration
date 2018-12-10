@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="21edcf0e-d331-4342-b104-f886fe5f4529" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/SteinhartHart-checkpoint.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/formulas-checkpoint.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/physical_units-checkpoint.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arduino.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SteinhartHart.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TSP01.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/formulas.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/Visualization.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/Visualization.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/physical_units.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/_build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/_build/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/_build/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/_build/doctrees/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/_build/html/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/_build/html/_sources/index.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/_build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/_build/html/genindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/_build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/_build/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/_build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/_build/html/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/_build/html/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/_build/html/py-modindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/_build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/_build/html/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../microcontroller/ADC/include/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../microcontroller/ADC/lib/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../microcontroller/ADC/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../microcontroller/ADC/src/main.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="21edcf0e-d331-4342-b104-f886fe5f4529" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,12 +149,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1544447026003</updated>
-      <workItem from="1544447031349" duration="2503000" />
+      <workItem from="1544447031349" duration="3515000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2503000" />
+    <option name="totallyTimeSpent" value="3515000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="19" width="1924" height="1063" extended-state="6" />
