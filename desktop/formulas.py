@@ -53,12 +53,14 @@ class Physical_Unit:
         if type(other) is int or type(other) is float:
             return Physical_Unit(self.un, self.sym, self.val / other, re=self.re / other)
         elif type(other) is Physical_Unit:
-            div_un, div_sim = self.un + ' / ' + other.un, self.sym + ' / ' + other.sym
+            div_un, div_sym = self.un + ' / ' + other.un, self.sym + ' / ' + other.sym
+            if (other.sym == ""):
+                div_sym = self.sym
             if (self.un == other.un):
                 div_un = ""
                 if (self.sym.lower() == other.sym.lower()):
-                    div_sim =  ""
-            return Physical_Unit(div_un, div_sim, self.val / other.val, re=self.re + other.re)
+                    div_sym =  ""
+            return Physical_Unit(div_un, div_sym, self.val / other.val, re=self.re + other.re)
         else:
             raise NotImplementedError
 
@@ -95,12 +97,13 @@ class Physical_Unit:
         return Physical_Unit(self.un, self.sym, abs(self.val), re=self.re)
 
     def __pow__(self, power, modulo=None):
-        str_pow = '^(' + str(power) + ')'
+        str_pow = '^(' + str(power) + ')' if self.sym != "" else ""
         return Physical_Unit(self.un + str_pow, self.sym + str_pow, self.val**power, re=self.re * abs(power))
     
     def log(self):
-        logval =  np.log(self.val)
-        return Physical_Unit("ln(" + self.un + ")", "ln(" + self.sym + ")" , logval , ae=self.ae * logval / self.val)
+        logval = np.log(self.val)
+        return Physical_Unit("ln(" + self.un + ")", "ln(" + self.sym + ")" ,  logval , ae=self.ae * logval / self.val )
+        # return Physical_Unit("ln(" + self.un + ")", "ln(" + self.sym + ")" ,  logval , ae=self.re )
 
     def exp(self):
         return Physical_Unit("e^(" + self.un + ")", "e^(" + self.sym + ")" , np.exp(self.val), ae=self.fout * self.val)
@@ -109,7 +112,7 @@ class Physical_Unit:
         return "(" + str(self.val) + " ± " + str(self.ae) + ") " + self.sym
 
     def __repr__(self):
-        return self.__repr__()
+        return self.__str__()
 
     def to_scientific(self):
         # round 2 time, if you have for example 981 --> roundval = -2 --> 1000
@@ -119,7 +122,7 @@ class Physical_Unit:
         ae_roundval = -int(math.floor(math.log10(float(self.ae))))
         
         val = float(round(self.val, ae_roundval))        
-        return str("{:." + str(math.ceil(math.log10(val/ae)) -1) + 'E}').format(Decimal(val)) + " ± {:.0E}".format(Decimal(ae))
+        return str("{:." + str(math.ceil(math.log10(val/ae)) -1) + 'e}').format(Decimal(val)) + " ± {:.0e}".format(Decimal(ae))
 
 
 if __name__ == "__main__":
@@ -144,6 +147,10 @@ if __name__ == "__main__":
     a = Physical_Unit(LENGTH, METER, 3.5821e-2, ae=0.0000001)
     b = Physical_Unit(LENGTH, METER, 27.2, ae=0.3)
     c = Physical_Unit(LENGTH, METER, 3178, ae=1)
+    print("a       =\t", a)
+    print("b       =\t", b)
+    print("c       =\t", c)
+
 
     sqr_a = a**2
     bxc = b*c
@@ -152,7 +159,7 @@ if __name__ == "__main__":
     one_adivb = -adivb+1
     sqrt_one_adivb = one_adivb**0.5
     result = sqr_a_plus_bxc / sqrt_one_adivb
-    print("a       =\t", a)
+
     print("a**2    =\t", sqr_a)
     print("bc      =\t", bxc)
     print("a**2+bc =\t", sqr_a_plus_bxc)
