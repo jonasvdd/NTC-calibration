@@ -106,7 +106,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#steinharthart-py">SteinhartHart.py</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#module-calibration">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-calibration.TSP01">calibration.TSP01 module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tsp01-py">TSP01.py</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -493,8 +496,76 @@ and 2 other TemperatureResistances objects.</p>
 
 </div>
 </div>
-<div class="section" id="module-calibration">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-calibration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-calibration.TSP01">
+<span id="calibration-tsp01-module"></span><h2>calibration.TSP01 module<a class="headerlink" href="#module-calibration.TSP01" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tsp01-py">
+<h3>TSP01.py<a class="headerlink" href="#tsp01-py" title="Permalink to this headline">¶</a></h3>
+<p>Wrapper of a <a class="reference external" href="https://www.thorlabs.de/newgrouppage9.cfm?objectgroup_id=5884&amp;pn=TSP01/">TSP01</a> sensor.</p>
+<dl class="class">
+<dt id="calibration.TSP01.TSP01">
+<em class="property">class </em><code class="descclassname">calibration.TSP01.</code><code class="descname">TSP01</code><a class="reference internal" href="_modules/calibration/TSP01.html#TSP01"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.TSP01.TSP01" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Is a wrapper for the THORLABS TSP01. 
+Makes use of SCPI (Standard Commands for Programmable Intstruments) 
+to retrieve the temperature/humidity.</p>
+<p>Creates an instance of the TSP01 temperature logger</p>
+<dl class="method">
+<dt id="calibration.TSP01.TSP01.USB_humidity">
+<code class="descname">USB_humidity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/TSP01.html#TSP01.USB_humidity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.TSP01.TSP01.USB_humidity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the built-in relative humidity</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="calibration.TSP01.TSP01.USB_temperature">
+<code class="descname">USB_temperature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/TSP01.html#TSP01.USB_temperature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.TSP01.TSP01.USB_temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the built-in temperature of the TSP01 logger</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the temperature in °C</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="calibration.TSP01.TSP01.probe_1_temperature">
+<code class="descname">probe_1_temperature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/TSP01.html#TSP01.probe_1_temperature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.TSP01.TSP01.probe_1_temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the temperature of external probe 1</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the temperature °C</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="calibration.TSP01.TSP01.probe_2_temperature">
+<code class="descname">probe_2_temperature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/calibration/TSP01.html#TSP01.probe_2_temperature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calibration.TSP01.TSP01.probe_2_temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the temperature of external probe 1</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the temperature °C</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 </div>
 
