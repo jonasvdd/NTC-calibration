@@ -1,6 +1,6 @@
 # NTC calibration
 
-# [🍾 documentation](https://jonasvdd.github.io/NTC-calibration/)
+# [📚📚📚](https://jonasvdd.github.io/NTC-calibration/)
 
 ## Table of contents
 
