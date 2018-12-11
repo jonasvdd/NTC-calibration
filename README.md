@@ -15,7 +15,7 @@
 
 Makes use of the [**Steinhart-Hart**](https://www.wikiwand.com/en/Steinhart%E2%80%93Hart_equation) equation to calibrate thermistors. This is achieved by:
 
-* Retrieving an analog to digital converted signal via an microcontroller, This value stands in relation with the resistance of the micro controller.
+* Retrieving an analog to digital converted signal via a microcontroller, This value is related to the resistance of the micro controller.
 * Fetching the resistance of the [Thorlabs TSP01]() temperature logger.
 
 Afterwards, these values are feeded into the [Steinhart-Hart class](desktop/SteinhartHart.py) and will be used to calibrate the coefficients.
